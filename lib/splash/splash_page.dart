@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -17,29 +18,29 @@ class _SplashPageState extends State<SplashPage> {
 
   void moveTOHome() {
     WidgetsBinding.instance.addPostFrameCallback((t) async {
-      await Future.delayed(const Duration(milliseconds: 2000));
+      await Future.delayed(const Duration(milliseconds: 4000));
       Navigator.pushNamed(context, "/");
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.orangeAccent,
       body: Center(
         child: Column(
           spacing: 20,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "PawPrint",
               style: TextStyle(
                 fontSize: 40,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
-            ),
-            CircularProgressIndicator(color: Colors.white),
+            ).animate().scale(duration: Duration(milliseconds: 300)),
+            const CircularProgressIndicator(color: Colors.white),
           ],
         ),
       ),

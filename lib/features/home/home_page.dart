@@ -3,14 +3,9 @@ import 'package:paw_print_app_2/features/home/components/animal_card.dart';
 import 'package:paw_print_app_2/features/home/components/home_category.dart';
 import 'package:paw_print_app_2/features/home/model/animal_model.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +31,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {});
-            },
-            child: const Text("ReBuild"),
-          ),
+
           Expanded(
             // height
             // width
