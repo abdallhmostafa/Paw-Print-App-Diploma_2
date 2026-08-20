@@ -61,7 +61,7 @@ class AnimalDetailsBodySection extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    "${animalModel.price} EGP",
+                    "${animalModel.price}",
                     style: const TextStyle(
                       fontSize: 24,
                       color: Color(0xFF9B4500),
@@ -101,7 +101,7 @@ class AnimalDetailsBodySection extends StatelessWidget {
                       if (animalModel.isMale)
                         const Text("Male")
                       else
-                        const Text("Femal"),
+                        const Text("Female"),
                     ],
                   ),
                 ),
