@@ -18,8 +18,10 @@ class _SplashPageState extends State<SplashPage> {
 
   void moveTOHome() {
     WidgetsBinding.instance.addPostFrameCallback((t) async {
-      await Future.delayed(const Duration(milliseconds: 4000));
-      Navigator.pushNamed(context, "/");
+      await Future.delayed(const Duration(milliseconds: 1500));
+      if (mounted) {
+        Navigator.pushNamed(context, "/");
+      }
     });
   }
 
@@ -39,7 +41,9 @@ class _SplashPageState extends State<SplashPage> {
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
-            ).animate().scale(duration: Duration(milliseconds: 300)),
+            ).animate().fade().slideX(
+              duration: const Duration(milliseconds: 500),
+            ),
             const CircularProgressIndicator(color: Colors.white),
           ],
         ),

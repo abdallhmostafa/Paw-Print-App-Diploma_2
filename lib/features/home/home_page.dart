@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paw_print_app_2/features/home/components/animal_card.dart';
 import 'package:paw_print_app_2/features/home/components/home_category.dart';
+import 'package:paw_print_app_2/features/home/components/home_drawer.dart';
 import 'package:paw_print_app_2/features/home/model/animal_model.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
         ),
         title: const Text("PawPrint"),
       ),
-      drawer: const Drawer(),
+      drawer: const HomeDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

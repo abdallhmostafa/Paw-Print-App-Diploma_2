@@ -18,6 +18,16 @@ class PawPrintApp extends StatelessWidget {
         "splash": (context) => const SplashPage(),
       },
       theme: ThemeData(
+        listTileTheme: ListTileThemeData(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(20),
+          ),
+          titleTextStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF564339),
+            fontSize: 18,
+          ),
+        ),
         chipTheme: ChipThemeData(
           side: const BorderSide(color: Color(0xFFFDEAE1)),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -40,6 +50,18 @@ class PawPrintApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData(
+        listTileTheme: ListTileThemeData(
+          
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(20),
+          ),
+          titleTextStyle: const TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF564339),
+            fontSize: 18,
+          ),
+          
+        ),
         chipTheme: ChipThemeData(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           shape: RoundedRectangleBorder(
