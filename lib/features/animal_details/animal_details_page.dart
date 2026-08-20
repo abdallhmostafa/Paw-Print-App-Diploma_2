@@ -14,7 +14,7 @@ class AnimalDetailsPage extends StatelessWidget {
           children: [
             Image.network(animalModel.image),
 
-            const AnimalDetailsBodySection(),
+            AnimalDetailsBodySection(animalModel: animalModel),
           ],
         ),
       ),
@@ -23,27 +23,69 @@ class AnimalDetailsPage extends StatelessWidget {
 }
 
 class AnimalDetailsBodySection extends StatelessWidget {
-  const AnimalDetailsBodySection({super.key});
+  const AnimalDetailsBodySection({super.key, required this.animalModel});
+  final AnimalModel animalModel;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(children: [Text("Buddy"), Text("Golden Retriever")]),
-              Column(children: [Text("150 EGP"), Text("Adoption Fee")]),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    animalModel.animalName,
+                    style: const TextStyle(
+                      fontSize: 28,
+                      color: Color(0xFF231A14),
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  Text(
+                    animalModel.kind,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Color(0xFF564339),
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    "${animalModel.price} EGP",
+                    style: const TextStyle(
+                      fontSize: 24,
+                      color: Color(0xFF9B4500),
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  const Text(
+                    "Adoption Fee",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Color(0xFF564339),
+
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
           const SizedBox(height: 20),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Card(
+              const Card(
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Column(children: [Text("Age"), Text("4 Months")]),
@@ -51,11 +93,20 @@ class AnimalDetailsBodySection extends StatelessWidget {
               ),
               Card(
                 child: Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Column(children: [Text("Age"), Text("4 Months")]),
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      const Text("Gender"),
+
+                      if (animalModel.isMale)
+                        const Text("Male")
+                      else
+                        const Text("Femal"),
+                    ],
+                  ),
                 ),
               ),
-              Card(
+              const Card(
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Column(children: [Text("Age"), Text("4 Months")]),
@@ -65,8 +116,14 @@ class AnimalDetailsBodySection extends StatelessWidget {
           ),
           const SizedBox(height: 20),
 
-          const Text("Pet Info"),
-          const SizedBox(height: 20),
+          const Text(
+            "Pet Info",
+            style: TextStyle(
+              fontSize: 20,
+              color: Color(0xFF231A14),
+              fontWeight: FontWeight.w900,
+            ),
+          ),
 
           Wrap(
             spacing: 16,
@@ -95,12 +152,17 @@ class AnimalDetailsBodySection extends StatelessWidget {
           ),
           const SizedBox(height: 20),
 
-          const Text("About Buddy"),
+          Text(
+            "About ${animalModel.animalName}",
+            style: const TextStyle(
+              fontSize: 20,
+              color: Color(0xFF231A14),
+              fontWeight: FontWeight.w900,
+            ),
+          ),
           const SizedBox(height: 12),
 
-          const Text(
-            "Buddy is an energetic and loving Golden Retriever puppy looking for his forever home! He loves to play fetch, go for short walks, and cuddle on the couch. He is currently learning basic commands and doing great with his potty training. Buddy would thrive in an active home with lots of love to give.",
-          ),
+          Text(animalModel.details),
           const SizedBox(height: 20),
 
           ListTile(
